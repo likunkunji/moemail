@@ -7,7 +7,7 @@ import { FloatMenu } from "@/components/float-menu"
 import { ThemeProvider } from "@/components/theme/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 import { cn } from "@/lib/utils"
-import { zpix } from "../fonts"
+import { sans } from "../fonts"
 import "../globals.css"
 import { Providers } from "../providers"
 
@@ -119,8 +119,8 @@ export default async function LocaleLayout({
       </head>
       <body 
         className={cn(
-          zpix.variable,
-          "font-zpix min-h-screen antialiased",
+          sans.variable,
+          "font-sans min-h-screen antialiased",
           "bg-background text-foreground",
           "transition-colors duration-300"
         )}
