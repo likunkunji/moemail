@@ -4,6 +4,7 @@ import { Shield, Share2, Clock, Code2 } from "lucide-react"
 import { ActionButton } from "@/components/home/action-button"
 import { FeatureCard } from "@/components/home/feature-card"
 import { getTranslations } from "next-intl/server"
+import { redirect } from "next/navigation"
 import type { Locale } from "@/i18n/config"
 
 export const runtime = "edge"
@@ -16,6 +17,11 @@ export default async function Home({
   const { locale: localeFromParams } = await params
   const locale = localeFromParams as Locale
   const session = await auth()
+
+  if (session?.user) {
+    redirect(`/${locale}/moe`)
+  }
+
   const t = await getTranslations({ locale, namespace: "home" })
 
   return (
